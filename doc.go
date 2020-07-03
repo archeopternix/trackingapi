@@ -23,5 +23,5 @@
 //  keys:= AllAccountIds()
 //
 // One single account can be accessed by calling with the requested key
-//  Account()
+//  account := Account("Account ID")
 package trackingapi
