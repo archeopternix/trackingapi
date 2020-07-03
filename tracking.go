@@ -1,5 +1,4 @@
-// trackingapi project main.go
-package main
+package trackingapi
 
 import (
 	"encoding/json"
@@ -41,13 +40,13 @@ func (t Tracking) AllAccountIds() (accounts []string) {
 	return accounts
 }
 
-// Account returns the pointer to one TrackingAccount by accountid
-func (t Tracking) Account(accountid string) (*TrackingAccount, error) {
-	_, exists := t.accounts[accountid]
+// Account returns the pointer to one TrackingAccount by asking for the key
+func (t Tracking) Account(key string) (*TrackingAccount, error) {
+	_, exists := t.accounts[key]
 	if !exists {
-		return nil, fmt.Errorf("account with id: %v does not exist", accountid)
+		return nil, fmt.Errorf("account with id: %v does not exist", key)
 	}
-	acc := t.accounts[accountid]
+	acc := t.accounts[key]
 	return &acc, nil
 
 }

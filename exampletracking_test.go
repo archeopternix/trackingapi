@@ -1,6 +1,6 @@
 // Example for package eTracker
 // GetUsers
-package main
+package trackingapi
 
 import (
 	"fmt"

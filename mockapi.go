@@ -1,6 +1,4 @@
-// restapi.go encapsulates the low level eTracler REST calls and returns JSON
-// messages that will be parsed by methods in etracker.go
-package main
+package trackingapi
 
 import (
 	"net/url"

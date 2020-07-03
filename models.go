@@ -1,7 +1,11 @@
-// trackingapi project main.go
-package main
+// Models for mapping eTracker REST calls to go structs
+// Etuser - user informations and login credentials bound to a single account, including assigned role
+// Etrole - userrole informations bound to a single account
+package trackingapi
 
-// eTracker User for JSON mapping to eTracker API for managing sub-users
+// Etuser used for mapping eTracker user information from REST calls to go structs.
+// User information and login credentials bound to a single account, including assigned role
+// for managing sub-users
 type Etuser struct {
 	Id       string `json:"id"`        // ID created by eTracker and returned by "create" call
 	Name     string `json:"name"`      // Last name
@@ -19,7 +23,8 @@ type Etuser struct {
 	Sex      string `json:"sex"`       // 0..male 1..female
 }
 
-// eTracker Role for JSON mapping to eTracker API for managing authorisation profiles
+// Etrole used for mapping eTracker user information from REST calls to go structs.
+// Role information bound to a single account for managing authorisation profiles
 type Etrole struct {
 	Id      string `json:"id"`      // ID of the role, referenced by Etuser
 	Name    string `json:"name"`    // The name for the authorisation profile
