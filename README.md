@@ -11,16 +11,42 @@ eTracker REST API documentation: (https://www.etracker.com/en/docs/integration-s
 ## Implementation:
 To implement the tracking we have first to create a Tracking struct, that
 will hold all created TrackingAccounts
-    tracking := NewTracking()
+```
+tracking := NewTracking()
+```
 
 Every TrackingAccount has to be initialised using an eTracker account or
 for testing purpose the mock implementation. For this purpose we do have
 ETrackerAPI for eTracker and MockTrackerAPI for the mock implementation
-	tracking.AddAccount("TEST", NewTrackingAccount(NewMockTrackerAPI()))
+```
+tracking.AddAccount("TEST", NewTrackingAccount(NewMockTrackerAPI()))
+```
 
 TrackingAccount are saved internally as a map[string]TrackingAccount, so you
 can list all keys of the map by calling
-    keys:= AllAccountIds()
+```
+keys:= AllAccountIds()
+```
 
 One single account can be accessed by calling with the requested key
-    Account()
+```
+Account()
+```
+
+## Sample:
+```
+tracking := NewTracking()
+tracking.AddAccount("TEST", NewTrackingAccount(NewMockTrackerAPI()))
+
+account, err := tracking.Account("TEST")
+if err != nil {
+	fmt.Printf("account not found: %v\n", err)
+}
+
+ret, err := account.GetRoles()
+if err != nil {
+	fmt.Printf("roles not found: %v\n", err)
+}
+fmt.Println(ret)
+// Output: [{39 Analytics only Access Rights 1 2} {21 Analyze and Edit Access Rights 1 19}]
+```
