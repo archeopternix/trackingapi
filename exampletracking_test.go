@@ -6,6 +6,23 @@ import (
 	"fmt"
 )
 
+func Example() {
+	tracking := NewTracking()
+	tracking.AddAccount("TEST", NewTrackingAccount(NewMockTrackerAPI()))
+
+	account, err := tracking.Account("TEST")
+	if err != nil {
+		fmt.Printf("account not found: %v\n", err)
+	}
+
+	ret, err := account.GetRoles()
+	if err != nil {
+		fmt.Printf("roles not found: %v\n", err)
+	}
+	fmt.Println(ret)
+	// Output: [{39 Analytics only Access Rights 1 2} {21 Analyze and Edit Access Rights 1 19}]
+}
+
 func ExampleTrackingAccount_CreateUser() {
 	api := NewTrackingAccount(NewMockTrackerAPI())
 

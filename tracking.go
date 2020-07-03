@@ -71,9 +71,9 @@ type TrackingAccount struct {
 
 // NewTrackingAccount creates a new TrackingAccount and has to be initialised
 // with an concrete tracking implementation (eTrackerAPI or MockAPI for testing purpose)
-func NewTrackingAccount(t TrackingAPI) *TrackingAccount {
-	account := new(TrackingAccount)
-	account.TrackingAPI = t
+func NewTrackingAccount(t TrackingAPI) TrackingAccount {
+
+	account := TrackingAccount{TrackingAPI: t}
 	return account
 }
 
