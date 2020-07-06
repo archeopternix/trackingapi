@@ -1,4 +1,4 @@
-# trackingapi
+# eTracker Management API - Golang 
 This package is an API abstraction layer to manage a larger amount of eTracker
 accounts (https://www.etracker.com/) in golang.
 
