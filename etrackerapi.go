@@ -108,7 +108,7 @@ type Config struct {
 
 // NewConfig creates new account configuration with preset email and token
 func NewConfig(id string, password string) *Config {
-	conf := Config{Email: "etracker@osram.info", Token: "6638704be30b2711dd9ba5b7b5b7f3e7b16ba8e1", AccountID: id, Password: password}
+	conf := Config{Email: "etracker@osram.info", Token: "", AccountID: id, Password: password}
 	return &conf
 }
 
